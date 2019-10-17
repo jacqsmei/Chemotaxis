@@ -1,56 +1,63 @@
-Bacteria uwu, owo; //declare bacteria variables here   
+Bacteria [] big, med;  //declare bacteria variables here   
 void setup() {
 	size(500, 500);
 	background(0);
 	colorMode(HSB);
 //initialize bacteria variables here 
-	uwu = new Bacteria();  
-	owo = new Bacteria();
+	big = new Bacteria[3];
+	for (int i = 0; i<big.length; i++) {
+		int randomR = (int) (Math.random() * 30);
+		big[i] = new Bacteria(randomR);
+	}
+	med = new Bacteria[6];
+	for (int j = 0; j<med.length; j++) {
+		int randomR = (int) (Math.random() * 10);
+		med[j] = new Bacteria(randomR);
+	}
 }   
 void draw() {    
 	//move and show the bacteria  
-	uwu.show();
-	owo.show();
-	uwu.walk();
-	owo.walk();
+	for (int i=0; i<big.length; i++) {
+		big[i].show();
+		big[i].walk();
+	}
+	for (int j=0; j<med.length; j++) {
+		med[j].show();
+		med[j].walk();
+	}
 }  
+
 void mousePressed() {
 	background(0);
 	redraw();
 }
+
 class Bacteria    
 {     
 	//lots of java!
-	int myX, myY;
-	int myHue;
-	Bacteria () {
+	int myX, myY, myR;
+	int myHue, myOpacity;
+	Bacteria (int r) {
 		myX = 250;
 		myY = 250;
+		myR = r;
 		setHue();
+		setOpacity();
 	}
 	void setHue() {
  		myHue = (int) (Math.random() * 256);
  	}
+ 	void setOpacity() {
+ 		myOpacity = (int) (Math.random() * 50);
+ 	}
  	void show() {
- 		fill(myHue, 255, 255, 10);
- 		stroke(myHue, 255, 255, 10);
- 		ellipse(myX, myY, 25, 25);
+ 		fill(myHue, 255, 255, myOpacity);
+ 		stroke(myHue, 255, 255, myOpacity);
+ 		ellipse(myX, myY, myR, myR);
  	}
  	void walk() {
- 		myX = myX + (int) (Math.random() * 7) - 3;
- 		myY = myY + (int) (Math.random() * 7) - 3;
+ 		myX = mouseX + (int) (Math.random() * 21) - 10;
+ 		myY = mouseY + (int) (Math.random() * 21) - 10;
  		setHue();
- 		if (myX>500) {
- 			myX = 0;
- 		}
- 		if (myX<0) {
- 			myX = 500;
- 		}
- 		if (myY>500) {
- 			myY = 0;
- 		}
- 		if (myY<0) {
- 			myY = 500;
- 		}
  	}
 }  
