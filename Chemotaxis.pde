@@ -6,12 +6,12 @@ void setup() {
 //initialize bacteria variables here 
 	big = new Bacteria[3];
 	for (int i = 0; i<big.length; i++) {
-		int randomR = (int) (Math.random() * 30);
+		int randomR = (int) (Math.random() * 50);
 		big[i] = new Bacteria(randomR);
 	}
 	med = new Bacteria[6];
 	for (int j = 0; j<med.length; j++) {
-		int randomR = (int) (Math.random() * 10);
+		int randomR = (int) (Math.random() * 30);
 		med[j] = new Bacteria(randomR);
 	}
 }   
@@ -48,7 +48,7 @@ class Bacteria
  		myHue = (int) (Math.random() * 256);
  	}
  	void setOpacity() {
- 		myOpacity = (int) (Math.random() * 50);
+ 		myOpacity = (int) (Math.random() * 40);
  	}
  	void show() {
  		fill(myHue, 255, 255, myOpacity);
