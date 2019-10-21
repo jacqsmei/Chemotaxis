@@ -16,7 +16,10 @@ void setup() {
 	}
 }   
 void draw() {    
-	//move and show the bacteria  
+	//move and show the bacteria 
+	fill(0,0,0,4);
+  	stroke(0,0,0,4);
+ 	rect(0, 0, 500, 500);
 	for (int i=0; i<big.length; i++) {
 		big[i].show();
 		big[i].walk();
@@ -56,8 +59,16 @@ class Bacteria
  		ellipse(myX, myY, myR, myR);
  	}
  	void walk() {
- 		myX = mouseX + (int) (Math.random() * 21) - 10;
- 		myY = mouseY + (int) (Math.random() * 21) - 10;
+ 		if (mouseX > myX) {
+ 			myX = myX + (int) (Math.random() * 5) - 1;
+ 		} else {
+ 			myX = myX + (int) (Math.random() * 5) - 4;
+ 		}
+ 		if (mouseY > myY) {
+ 			myY = myY + (int) (Math.random() * 5) - 1;
+ 		} else {
+ 			myY = myY + (int) (Math.random() * 5) - 4;
+ 		}
  		setHue();
  	}
 }  
