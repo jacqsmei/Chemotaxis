@@ -1,8 +1,8 @@
 Bacteria [] big, med;  //declare bacteria variables here   
 void setup() {
 	size(500, 500);
-	background(0);
 	colorMode(HSB);
+	background(0, 0, 0, 100);
 //initialize bacteria variables here 
 	big = new Bacteria[3];
 	for (int i = 0; i<big.length; i++) {
@@ -14,11 +14,11 @@ void setup() {
 		int randomR = (int) (Math.random() * 30);
 		med[j] = new Bacteria(randomR);
 	}
-}   
+}
 void draw() {    
 	//move and show the bacteria 
-	fill(0,0,0,4);
-  	stroke(0,0,0,4);
+	fill(0, 0, 0, 4);
+  	stroke(0, 0, 0, 4);
  	rect(0, 0, 500, 500);
 	for (int i=0; i<big.length; i++) {
 		big[i].show();
@@ -32,7 +32,6 @@ void draw() {
 
 void mousePressed() {
 	background(0);
-	redraw();
 }
 
 class Bacteria    
