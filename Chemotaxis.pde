@@ -31,7 +31,7 @@ void draw() {
 }  
 
 void mousePressed() {
-	background(0);
+	setup();
 }
 
 class Bacteria    
